@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, IconButton, Typography } from '@mui/material';
+import { Card, Grid, IconButton, Typography } from '@mui/material';
 import { AddOutlined } from '@mui/icons-material';
 
 import { JournalLayout } from '../layout/JournalLayout';
@@ -19,21 +19,28 @@ export const JournalPage = () => {
   return (
     <JournalLayout>
 
-      <Typography variant='h4'>Dashboard Page</Typography>
+      <Card sx={{padding: 2}}>
 
+      <Typography variant='h4'>Dashboard Page</Typography>
+      </Card>
+
+    <Card sx={{padding: 3, mt: 1}}>
       <Grid container sx={{mt: 5}}>
         <Grid item xs={12}  >
-          <Grid item md={6} >
+          
           <GraficasJS />
             
-          </Grid>
-          <Grid item md={6} >
-          <GraficasJS />
+          
+        
+         
 
-          </Grid>
+          
         </Grid>
 
       </Grid>
+
+    </Card>
+
 
       
       
