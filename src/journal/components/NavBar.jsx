@@ -37,12 +37,13 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             <Grid container direction='row' justifyContent='space-between' alignItems='center'>
                 <Typography variant='h6' noWrap component='div'>Bienvenido {displayName} </Typography>
 
+                
                 <IconButton 
                     color='error'
                     onClick={ onLogout }
                 >
-                    <Switch   name="gilad" /> <Typography sx={{pr: 2}}>Theme</Typography>
                     <LogoutOutlined />
+                    <Typography sx={{ml: "10px"}} variant='h6'>Salir</Typography>
                 </IconButton>
             </Grid>
 

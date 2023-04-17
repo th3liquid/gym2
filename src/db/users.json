@@ -1,0 +1,43 @@
+[
+    {
+        "id":1,
+        "name": "Kevin Alan",
+        "email": "th3liquid@gmail.com",
+        "gender": "Hombre",
+        "status": "Activo",
+        "membresia": "Mensual"
+    },
+    {
+        "id":2,
+        "name": "Marcela",
+        "email": "1234@gmail.com",
+        "gender": "Mujer",
+        "status": "Vencido",
+        "membresia": "Anual"
+    },
+    {
+        "id":3,
+        "name": "Danae",
+        "email": "asdads@gmail.com",
+        "gender": "Mujer",
+        "status": "Activo",
+        "membresia": "Mensual"
+    },
+    {
+        "id":4,
+        "name": "Oscar",
+        "email": "oscar@gmail.com",
+        "gender": "Hombre",
+        "status": "Activo",
+        "membresia": "Mensual"
+    },
+    {
+        "id":5,
+        "name": "Josue",
+        "email": "josue@gmail.com",
+        "gender": "Hombre",
+        "status": "Activo",
+        "membresia": "Mensual"
+    }
+
+]
