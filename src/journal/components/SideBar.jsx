@@ -29,6 +29,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import { NavLink } from "react-router-dom";
 
+
 export const SideBar = ({ drawerWidth = 240 }) => {
   const { displayName } = useSelector((state) => state.auth);
   // const { notes } = useSelector( state => state.journal );

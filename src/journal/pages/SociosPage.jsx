@@ -11,6 +11,7 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import { TablasNuevas } from "../components/TablasNuevas";
 import { useState } from "react";
 import users from '../../db/users.json'
+import MuiDrawer from "../components/MuiDrawer";
 
 export const SociosPage = () => {
   const dispatch = useDispatch();
@@ -64,7 +65,9 @@ export const SociosPage = () => {
   };
 
   return (
-    <JournalLayout>
+    <>
+    
+    
       <Card sx={{padding: 2, margin: 1,  }}>
         <Grid container>
           <Grid item xs={12} md={6}>
@@ -139,6 +142,6 @@ Cancelar
       <Card sx={{ margin: 1, padding: 2 }}>
         <TablasNuevas /> 
       </Card>
-    </JournalLayout>
+      </>
   );
 };

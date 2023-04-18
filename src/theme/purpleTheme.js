@@ -12,7 +12,17 @@ export const purpleTheme = createTheme({
         error: {
             main: red.A400
         }
-    }
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                body: {
+                    backgroundColor: '#EAEAEF', // Cambiar al color de fondo deseado
+                },
+            },
+        },
+    },
+    
 })
 
 

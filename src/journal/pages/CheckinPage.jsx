@@ -16,6 +16,7 @@ import Box from '@mui/material/Box';
 import BasicModal from "../components/BasicModal";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useEffect } from "react";
+import sucursal from '../../db/susursal.json'
 
 
 const style = {
@@ -95,8 +96,10 @@ export const CheckinPage = () => {
   };
 
 
+
+
   return (
-    <JournalLayout>
+   <>
 
     
       {/* <Typography>Check In</Typography> */}
@@ -130,6 +133,11 @@ export const CheckinPage = () => {
             <Grid sx={{ marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
               <Typography sx={{ mt: 2 }} variant="h5">
                {fechaActual.toLocaleDateString()} 
+              </Typography>
+            </Grid>
+            <Grid sx={{ marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
+              <Typography sx={{ my: 3 }} variant="h5">
+               Sucursal: {sucursal[0].name}
               </Typography>
             </Grid>
             <Grid
@@ -271,6 +279,6 @@ export const CheckinPage = () => {
           </Card>
         </Grid>
       </Grid>
-    </JournalLayout>
+      </>
   );
 };

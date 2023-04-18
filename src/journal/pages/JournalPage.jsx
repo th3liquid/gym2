@@ -6,6 +6,7 @@ import { JournalLayout } from '../layout/JournalLayout';
 import { NoteView, NothingSelectedView } from '../views';
 import { startNewNote } from '../../store/journal/thunks';
 import { GraficasJS } from '../components/GraficasJS';
+import MuiDrawer from '../components/MuiDrawer';
 
 export const JournalPage = () => {
 
@@ -17,14 +18,15 @@ export const JournalPage = () => {
   }
 
   return (
-    <JournalLayout>
+    <>
+    
 
-      <Card sx={{padding: 2}}>
+      <Card sx={{margin: 2, padding: 2}}>
 
       <Typography variant='h4'>Dashboard Page</Typography>
       </Card>
 
-    <Card sx={{padding: 3, mt: 1}}>
+    <Card sx={{margin: 2, padding: 3, mt: 1}}>
       <Grid container sx={{mt: 5}}>
         <Grid item xs={12}  >
           
@@ -41,11 +43,13 @@ export const JournalPage = () => {
 
     </Card>
 
+    </>
+
 
       
       
      
 
-    </JournalLayout>
+    
   )
 }
