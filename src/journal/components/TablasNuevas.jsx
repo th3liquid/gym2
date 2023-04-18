@@ -1,6 +1,7 @@
 import React from 'react'
 import MUIDataTable from 'mui-datatables'
 import users from '../../db/users.json'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 
 const columns = [
@@ -32,8 +33,19 @@ const columns = [
 
     name: "status",
     label: "Status",
-
+    options: {
+        customBodyRender: (value) => {
+          // Renderiza un círculo verde si el valor es "activo", de lo contrario, un círculo rojo
+          return (
+            <FiberManualRecordIcon
+              style={{ color: value === 'Activo' ? 'green' : 'red' }}
+            />
+          );
+        },
+      },
     },
+
+    
     {
 
     name: "membresia",

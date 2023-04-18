@@ -154,7 +154,7 @@ export const CheckinPage = () => {
       <Dialog open={modalVisible} onClose={handleCloseModal}>
         <Grid container sx={{marginTop: 2}}>
           <Grid item sx={{display: "flex", justifyContent: "center"}} xs={12}>
-          <Avatar src='https://pbs.twimg.com/media/D1Gn100XQAAhI_Q.png' sx={{width: "150px", height: "150px"}}>H</Avatar>
+          <Avatar src={usuarioEncontrado && usuarioEncontrado.image} sx={{width: "150px", height: "150px"}}>H</Avatar>
           </Grid>
           <Grid item sx={{marginTop: 2, display: "flex", justifyContent: "center"}} xs={12}>
           {usuarioEncontrado && (
