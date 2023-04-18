@@ -17,11 +17,18 @@ export const AppRouter = () => {
   return (
     <Routes>
 
-        {
+      
+          <Route path="/*" element={ <JournalRoutes /> } />
+          <Route path="/auth/*" element={ <AuthRoutes /> } />
+
+
+          {/* Funcionamiento para Firebase */}
+        
+        {/* {
           (status === 'authenticated')
            ? <Route path="/*" element={ <JournalRoutes /> } />
            : <Route path="/auth/*" element={ <AuthRoutes /> } />
-        }
+        } */}
 
         <Route path='/*' element={ <Navigate to='/auth/login' />  } />
 
