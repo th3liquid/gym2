@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, Button, Card, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, TextField, Typography } from "@mui/material";
+import { Avatar, Button, Card, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, TextField, Typography, useMediaQuery } from "@mui/material";
 import { AddOutlined } from "@mui/icons-material";
 
 import { JournalLayout } from "../layout/JournalLayout";
@@ -17,6 +17,7 @@ import BasicModal from "../components/BasicModal";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useEffect } from "react";
 import sucursal from '../../db/susursal.json'
+import { useTheme } from "@emotion/react";
 
 
 const style = {
@@ -41,6 +42,9 @@ export const CheckinPage = () => {
   const [modalNoEncontradoVisible, setModalNoEncontradoVisible] = useState(false);
   const [usuarioEncontrado, setUsuarioEncontrado] = useState(null);
   const [fechaActual, setFechaActual] = useState(new Date());
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Detectar si es una pantalla móvil
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -108,6 +112,7 @@ export const CheckinPage = () => {
         container
         
         sx={{
+          
           backgroundImage: `url(${backgroundImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -116,35 +121,36 @@ export const CheckinPage = () => {
           height: '100vh',
           alignItems: "center",
           
+          
         }}
       >
-        <Grid item>
-          <Card sx={{ padding: 3, width: "500px" }}>
-            <Grid sx={{ display: "flex", justifyContent: "center" }} container>
-              <Grid item>
+        <Grid item  >
+          <Card sx={{   padding: 3, maxWidth: "800px" }}>
+            <Grid sx={{  display: "flex", justifyContent: "center" }} container>
+              <Grid item >
                 <DashboardIcon sx={{ fontSize: "160px" }} />
               </Grid>
             </Grid>
-            <Grid sx={{ display: "flex", justifyContent: "center" }} item>
-              <Typography sx={{ mt: 2 }} variant="h3">
+            <Grid sx={{paddingLeft: "30px", paddingRight: "30px", display: "flex", justifyContent: "center" }} item>
+              <Typography sx={{ textAlign: "center", mt: 2 }} variant="h3">
               {fechaActual.toLocaleTimeString()} 
               </Typography>
             </Grid>
-            <Grid sx={{ marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
-              <Typography sx={{ mt: 2 }} variant="h5">
+            <Grid sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
+              <Typography sx={{textAlign: "center", mt: 2 }} variant="h5">
                {fechaActual.toLocaleDateString()} 
               </Typography>
             </Grid>
-            <Grid sx={{ marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
-              <Typography sx={{ my: 3 }} variant="h5">
+            <Grid sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "-20px", display: "flex", justifyContent: "center" }} item>
+              <Typography sx={{textAlign: "center", my: 3 }} variant="h5">
                Sucursal: {sucursal[0].name}
               </Typography>
             </Grid>
             <Grid
-              sx={{ display: "flex", justifyContent: "center", padding: 1 }}
+              sx={{  display: "flex", justifyContent: "center", padding: 1 }}
               item
             >
-              <FormControl fullWidth variant="outlined">
+              <FormControl sx={{px: "40px"}} fullWidth variant="outlined">
 
               <TextField
                 type="number"
@@ -155,14 +161,16 @@ export const CheckinPage = () => {
                 value={codigoSocio}
                 onChange={(e) => setCodigoSocio(e.target.value)}
                 onKeyDown={handleKeyDown} 
+                autoFocus
                 />
                 <Button variant="contained" onClick={handleEnviarClick} >Enviar</Button>
 
                 {/* Modal */}
-      <Dialog open={modalVisible} onClose={handleCloseModal}>
+      <Dialog open={modalVisible}    onClose={handleCloseModal}>
+        <DialogContent dividers scroll="body">
         <Grid container sx={{marginTop: 2}}>
           <Grid item sx={{display: "flex", justifyContent: "center"}} xs={12}>
-          <Avatar src={usuarioEncontrado && usuarioEncontrado.image} sx={{width: "150px", height: "150px"}}>H</Avatar>
+            <Avatar src={usuarioEncontrado && usuarioEncontrado.image} sx={{width: "150px", height: "150px"}}>H</Avatar>
           </Grid>
           <Grid item sx={{marginTop: 2, display: "flex", justifyContent: "center"}} xs={12}>
           {usuarioEncontrado && (
@@ -170,7 +178,7 @@ export const CheckinPage = () => {
               {/* Mostrar el nombre del usuario */}
              
               
-              <Typography variant="h4">Bienvenido <b>{usuarioEncontrado.name}</b></Typography>
+              <Typography sx={{textAlign: "center"}} variant="h4">Bienvenido <b>{usuarioEncontrado.name}</b></Typography>
               
               {/* Agregar más detalles del usuario aquí */}
             </>
@@ -181,7 +189,7 @@ export const CheckinPage = () => {
             <>
               {/* Mostrar el nombre del usuario */}
               <Grid item sx={{display: "flex", justifyContent: "center"}}>
-              <Typography variant="h6">
+              <Typography sx={{textAlign: "center"}} variant="h6">
                 Codigo de Socio: <b>{codigoSocio}</b>
               </Typography>
 
@@ -196,7 +204,7 @@ export const CheckinPage = () => {
             <>
               {/* Mostrar el nombre del usuario */}
               <Grid item sx={{display: "flex", justifyContent: "center"}}>
-              <Typography variant="h6">
+              <Typography sx={{textAlign: "center"}} variant="h6">
                 Tu Membresia vence en: <b>FECHA DE MEMBRESIA</b>
               </Typography>
 
@@ -208,6 +216,7 @@ export const CheckinPage = () => {
           </Grid>
 
         </Grid>
+        </DialogContent>
      
         
         <DialogActions>
